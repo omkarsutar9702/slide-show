@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>gallery</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="gallery_style.css">
+  </head>
+  <body>
+      <div class="container">
+        <h1 id="center">PHOTO GALLERY OF ONE PIECE</h1>
+          <div class="row">
+              <div class="col-md-3">
+                  <img id="image1" class="crop-img" src="img1.jpg" alt="one piece" />
+              </div>
+              <div class="col-md-3">
+                <img id="image2" class="crop-img" src="img2.jpg" alt="one piece" />
+            </div>
+            <div class="col-md-3">
+                <img id="image3" class="crop-img" src="img3.jpg" alt="one piece" />
+            </div>
+            <div class="col-md-3">
+                <img id="image4" class="crop-img" src="img4.png" alt="one piece" />
+            </div>
+            <div class="col-md-3">
+                <img id="image5" class="crop-img" src="img5.jpg" alt="one piece" />
+            </div>
+            <div class="col-md-3">
+                <img id="image6" class="crop-img" src="img6.png" alt="one piece" />
+            </div>
+            <div class="col-md-3">
+              <img id="image7" class="crop-img" src="img7.jpg" alt="one piece" />
+          </div>
+          <div class="col-md-3">
+            <img id="image8" class="crop-img" src="img8.png" alt="one piece" />
+        </div>
+          </div>
+          <div class="row">
+            <div class="col-md-1">
+              <button id="backward">&lt;</button>
+            </div>
+            <div class="col-md-10">
+              <img id="bigimg" class="large-img" src="img1.jfif" alt="graffittied building"/> 
+            </div>
+            <div class="col-md-1">
+              <button id="forward">&gt;</button>
+            </div>
+          </div>
+
+        </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    // weather the slide ahow is pauesd or not 
+    var pauesd = false;
+    $(".crop-img").click(function(){
+      $("#bigimg").attr("src", $(this).attr("src"));
+    });
+
+    var counter = 1;
+    $("#image"+counter).click();
+
+    $("#backward").click(function(){
+      counter = counter - 1;
+      if (counter< 1){
+        counter = 8;
+      }
+      $("#image"+counter).click()
+    });
+    $("#forward").click(function(){
+      counter = counter + 1;
+      if (counter>8){
+        counter =1;
+      }
+      $("#image"+counter).click()
+    })
+    $("#bigimg").click(function(){
+      pauesd = !pauesd;
+    });
+    setInterval(function(){
+      if(!pauesd){
+        $("#forward").click();
+      };
+    },2000);
+
+    </script>
+  </body>
+</html>
